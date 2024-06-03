@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on June 03, 2024, at 16:50
+    on June 03, 2024, at 17:34
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -359,6 +359,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Start Code - component code to be run after the window creation
     
     # --- Initialize components for Routine "Instruction2" ---
+    # Run 'Begin Experiment' code from code_5
+    slideN = 1
+    instruct_txt = '在這個實驗中，\n\n你需要嘗試記住螢幕上顯示的數字。\n\n所有數字都在0到9之間。\n\n你會看到一串數字，依序顯示\n\n請記住整串數字'
+    
+    maxSlideN = 2
+    minSlideN = 1
     backimg_2 = visual.ImageStim(
         win=win,
         name='backimg_2', 
@@ -366,13 +372,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0), size=(1.775,1),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=0.0)
-    # Run 'Begin Experiment' code from code_5
-    slideN = 1
-    instruct_txt = '在這個實驗中，\n\n你需要嘗試記住螢幕上顯示的數字。\n\n所有數字都在0到9之間。\n\n你會看到一串數字，依序顯示\n\n請記住整串數字'
-    
-    maxSlideN = 2
-    minSlideN = 1
+        texRes=128.0, interpolate=True, depth=-1.0)
     i2_txt = visual.TextStim(win=win, name='i2_txt',
         text='',
         font='Microsoft JhengHei',
@@ -458,14 +458,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0), size=(1.775,1),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=0.0)
+        texRes=128.0, interpolate=True, depth=-1.0)
     recall_txt = visual.TextStim(win=win, name='recall_txt',
         text='請試著回想剛剛出現的數字',
         font='Arial',
         pos=(0, 0.25), height=0.05, wrapWidth=None, ori=0.0, 
         color=[-0.6157, -0.6706, -0.0196], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-1.0);
+        depth=-2.0);
     textbox = visual.TextBox2(
          win, text=None, placeholder=None, font='Arial',
          pos=(0, 0),     letterHeight=0.05,
@@ -478,9 +478,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
          anchor='center', overflow='visible',
          fillColor=None, borderColor=[-1.0000, -1.0000, -1.0000],
          flipHoriz=False, flipVert=False, languageStyle='LTR',
-         editable=True,
+         editable=False,
          name='textbox',
-         depth=-2, autoLog=True,
+         depth=-3, autoLog=True,
     )
     continue_button = visual.ImageStim(
         win=win,
@@ -489,7 +489,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, -0.2), size=None,
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-3.0)
+        texRes=128.0, interpolate=True, depth=-4.0)
     mouse = event.Mouse(win=win)
     x, y = [None, None]
     mouse.mouseClock = core.Clock()
@@ -1222,6 +1222,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             continueRoutine = True
             # update component parameters for each repeat
             thisExp.addData('Recall.started', globalClock.getTime(format='float'))
+            # Run 'Begin Routine' code from fb_code
+            entered_text = ''
             textbox.reset()
             # setup some python lists for storing info about the mouse
             mouse.x = []
@@ -1255,6 +1257,20 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                # Run 'Each Frame' code from fb_code
+                # Check for key presses
+                keys = event.getKeys()
+                for key in keys:
+                    if key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']:
+                        entered_text += key
+                        textbox.setText(entered_text)
+                    elif key == 'backspace':
+                        entered_text = entered_text[:-1]
+                        textbox.setText(entered_text)
+                    elif key == 'return':
+                        # End the routine when Enter is pressed
+                        continueRoutine = False
+                
                 
                 # *backimg_4* updates
                 
@@ -1400,7 +1416,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
             thisExp.addData('Recall.stopped', globalClock.getTime(format='float'))
-            trials.addData('textbox.text',textbox.text)
             # Run 'End Routine' code from fb_code
             if textbox.text == str(digits):
                 correct = 1

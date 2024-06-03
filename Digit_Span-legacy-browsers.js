@@ -304,7 +304,7 @@ async function experimentInit() {
     ori : 0.0, pos : [0, 0], size : [1.775, 1],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : 0.0 
+    texRes : 128.0, interpolate : true, depth : -1.0 
   });
   recall_txt = new visual.TextStim({
     win: psychoJS.window,
@@ -315,7 +315,7 @@ async function experimentInit() {
     pos: [0, 0.25], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([(- 0.6157), (- 0.6706), (- 0.0196)]),  opacity: undefined,
-    depth: -1.0 
+    depth: -2.0 
   });
   
   textbox = new visual.TextBox({
@@ -336,10 +336,10 @@ async function experimentInit() {
     padding: 0.0,
     alignment: 'center',
     overflow: 'visible',
-    editable: true,
+    editable: false,
     multiline: true,
     anchor: 'center',
-    depth: -2.0 
+    depth: -3.0 
   });
   
   continue_button = new visual.ImageStim({
@@ -350,7 +350,7 @@ async function experimentInit() {
     ori : 0.0, pos : [0, (- 0.2)], size : undefined,
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -3.0 
+    texRes : 128.0, interpolate : true, depth : -4.0 
   });
   mouse = new core.Mouse({
     win: psychoJS.window,
@@ -1197,6 +1197,7 @@ function Digit_PresentationRoutineEnd(snapshot) {
 }
 
 
+var entered_text;
 var RecallComponents;
 function RecallRoutineBegin(snapshot) {
   return async function () {
@@ -1208,9 +1209,10 @@ function RecallRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
+    // Run 'Begin Routine' code from fb_code
+    entered_text = "";
+    
     psychoJS.experiment.addData('Recall.started', globalClock.getTime());
-    textbox.setText('');
-    textbox.refresh();
     // setup some python lists for storing info about the mouse
     // current position of the mouse:
     mouse.x = [];
@@ -1238,6 +1240,7 @@ function RecallRoutineBegin(snapshot) {
 }
 
 
+var keys;
 function RecallRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'Recall' ---
@@ -1245,6 +1248,43 @@ function RecallRoutineEachFrame() {
     t = RecallClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
+    // Run 'Each Frame' code from fb_code
+    var _pj;
+    function _pj_snippets(container) {
+        function in_es6(left, right) {
+            if (((right instanceof Array) || ((typeof right) === "string"))) {
+                return (right.indexOf(left) > (- 1));
+            } else {
+                if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {
+                    return right.has(left);
+                } else {
+                    return (left in right);
+                }
+            }
+        }
+        container["in_es6"] = in_es6;
+        return container;
+    }
+    _pj = {};
+    _pj_snippets(_pj);
+    keys = psychoJS.eventManager.getKeys();
+    for (var key, _pj_c = 0, _pj_a = keys, _pj_b = _pj_a.length; (_pj_c < _pj_b); _pj_c += 1) {
+        key = _pj_a[_pj_c];
+        if (_pj.in_es6(key, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"])) {
+            entered_text += key;
+            textbox.setText(entered_text);
+        } else {
+            if ((key === "backspace")) {
+                entered_text = entered_text.slice(0, (- 1));
+                textbox.setText(entered_text);
+            } else {
+                if ((key === "return")) {
+                    continueRoutine = false;
+                }
+            }
+        }
+    }
+    
     
     // *backimg_4* updates
     if (t >= 0.0 && backimg_4.status === PsychoJS.Status.NOT_STARTED) {
@@ -1359,8 +1399,6 @@ function RecallRoutineEnd(snapshot) {
         thisComponent.setAutoDraw(false);
       }
     });
-    psychoJS.experiment.addData('Recall.stopped', globalClock.getTime());
-    psychoJS.experiment.addData('textbox.text',textbox.text)
     // Run 'End Routine' code from fb_code
     if ((textbox.text === digits.toString())) {
         correct = 1;
@@ -1378,6 +1416,7 @@ function RecallRoutineEnd(snapshot) {
         blocks.finished = true;
     }
     
+    psychoJS.experiment.addData('Recall.stopped', globalClock.getTime());
     // store data for psychoJS.experiment (ExperimentHandler)
     if (mouse.x) {  psychoJS.experiment.addData('mouse.x', mouse.x[0])};
     if (mouse.y) {  psychoJS.experiment.addData('mouse.y', mouse.y[0])};
