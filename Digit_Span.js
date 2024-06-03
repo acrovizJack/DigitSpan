@@ -183,7 +183,7 @@ async function experimentInit() {
     name : 'backimg_2', units : undefined, 
     image : 'stimuli/redesign/digitspan_background.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, 0], size : undefined,
+    ori : 0.0, pos : [0, 0], size : [1.775, 1],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -263,7 +263,7 @@ async function experimentInit() {
     name : 'backimg_3', units : undefined, 
     image : 'stimuli/redesign/digitspan_background.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, 0], size : undefined,
+    ori : 0.0, pos : [0, 0], size : [1.775, 1],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -309,7 +309,7 @@ async function experimentInit() {
     name : 'backimg_4', units : undefined, 
     image : 'stimuli/redesign/digitspan_background.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, 0], size : undefined,
+    ori : 0.0, pos : [0, 0], size : [1.775, 1],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -371,7 +371,7 @@ async function experimentInit() {
     name : 'backimg_5', units : undefined, 
     image : 'stimuli/redesign/digitspan_background.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, 0], size : undefined,
+    ori : 0.0, pos : [0, 0], size : [1.775, 1],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 
@@ -395,7 +395,7 @@ async function experimentInit() {
     name : 'backimg_6', units : undefined, 
     image : 'stimuli/redesign/digitspan_background.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, 0], size : undefined,
+    ori : 0.0, pos : [0, 0], size : [1.775, 1],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : 0.0 

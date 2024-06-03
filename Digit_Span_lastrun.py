@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on June 03, 2024, at 16:19
+    on June 03, 2024, at 16:39
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -363,7 +363,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='backimg_2', 
         image='stimuli/redesign/digitspan_background.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, 0), size=None,
+        ori=0.0, pos=(0, 0), size=(1.775,1),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=0.0)
@@ -419,6 +419,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "reset_correct" ---
     
     # --- Initialize components for Routine "Digit_Presentation" ---
+    backimg_3 = visual.ImageStim(
+        win=win,
+        name='backimg_3', 
+        image='stimuli/redesign/digitspan_background.png', mask=None, anchor='center',
+        ori=0.0, pos=(0, 0), size=None,
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=0.0)
     image = visual.ImageStim(
         win=win,
         name='image', 
@@ -426,30 +434,38 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, 0), size=(0.1, 0.1),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=0.0)
+        texRes=128.0, interpolate=True, depth=-1.0)
     Fixation = visual.TextStim(win=win, name='Fixation',
         text='+',
         font='Arial',
         pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=-1.0);
+        depth=-2.0);
     pres_text = visual.TextStim(win=win, name='pres_text',
         text='',
         font='Arial',
         pos=(0, 0.005), height=0.1, wrapWidth=None, ori=0.0, 
         color=[-0.6078, -0.6706, -0.0118], colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
-        depth=-2.0);
+        depth=-3.0);
     
     # --- Initialize components for Routine "Recall" ---
+    backimg_4 = visual.ImageStim(
+        win=win,
+        name='backimg_4', 
+        image='stimuli/redesign/digitspan_background.png', mask=None, anchor='center',
+        ori=0.0, pos=(0, 0), size=None,
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=0.0)
     recall_txt = visual.TextStim(win=win, name='recall_txt',
         text='請試著回想剛剛出現的數字',
         font='Arial',
         pos=(0, 0.25), height=0.05, wrapWidth=None, ori=0.0, 
         color=[-0.6157, -0.6706, -0.0196], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=0.0);
+        depth=-1.0);
     textbox = visual.TextBox2(
          win, text=None, placeholder=None, font='Arial',
          pos=(0, 0),     letterHeight=0.05,
@@ -464,7 +480,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
          flipHoriz=False, flipVert=False, languageStyle='LTR',
          editable=True,
          name='textbox',
-         depth=-1, autoLog=True,
+         depth=-2, autoLog=True,
     )
     continue_button = visual.ImageStim(
         win=win,
@@ -473,28 +489,44 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         ori=0.0, pos=(0, -0.2), size=None,
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
-        texRes=128.0, interpolate=True, depth=-2.0)
+        texRes=128.0, interpolate=True, depth=-3.0)
     mouse = event.Mouse(win=win)
     x, y = [None, None]
     mouse.mouseClock = core.Clock()
     
     # --- Initialize components for Routine "Feedback" ---
+    backimg_5 = visual.ImageStim(
+        win=win,
+        name='backimg_5', 
+        image='stimuli/redesign/digitspan_background.png', mask=None, anchor='center',
+        ori=0.0, pos=(0, 0), size=None,
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=0.0)
     feedback_txt = visual.TextStim(win=win, name='feedback_txt',
         text='',
         font='Arial',
         pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
         color=[-0.6157, -0.6706, -0.0196], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=0.0);
+        depth=-1.0);
     
     # --- Initialize components for Routine "End" ---
+    backimg_6 = visual.ImageStim(
+        win=win,
+        name='backimg_6', 
+        image='stimuli/redesign/digitspan_background.png', mask=None, anchor='center',
+        ori=0.0, pos=(0, 0), size=None,
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=0.0)
     Thank_you = visual.TextStim(win=win, name='Thank_you',
         text='',
         font='Arial',
         pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
         color=[-0.6078, -0.6706, -0.0118], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
-        depth=0.0);
+        depth=-1.0);
     
     # create some handy timers
     
@@ -613,20 +645,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if backimg_2.status == STARTED:
                 # update params
                 pass
-            
-            # if backimg_2 is stopping this frame...
-            if backimg_2.status == STARTED:
-                # is it time to stop? (based on global clock, using actual start)
-                if tThisFlipGlobal > backimg_2.tStartRefresh + 1.0-frameTolerance:
-                    # keep track of stop time/frame for later
-                    backimg_2.tStop = t  # not accounting for scr refresh
-                    backimg_2.tStopRefresh = tThisFlipGlobal  # on global time
-                    backimg_2.frameNStop = frameN  # exact frame index
-                    # add timestamp to datafile
-                    thisExp.timestampOnFlip(win, 'backimg_2.stopped')
-                    # update status
-                    backimg_2.status = FINISHED
-                    backimg_2.setAutoDraw(False)
             
             # *i2_txt* updates
             
@@ -1007,7 +1025,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisExp.addData('Digit_Presentation.started', globalClock.getTime(format='float'))
                 pres_text.setText(str(digits)[digitLoop.thisN])
                 # keep track of which components have finished
-                Digit_PresentationComponents = [image, Fixation, pres_text]
+                Digit_PresentationComponents = [backimg_3, image, Fixation, pres_text]
                 for thisComponent in Digit_PresentationComponents:
                     thisComponent.tStart = None
                     thisComponent.tStop = None
@@ -1029,6 +1047,40 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
+                    
+                    # *backimg_3* updates
+                    
+                    # if backimg_3 is starting this frame...
+                    if backimg_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                        # keep track of start time/frame for later
+                        backimg_3.frameNStart = frameN  # exact frame index
+                        backimg_3.tStart = t  # local t and not account for scr refresh
+                        backimg_3.tStartRefresh = tThisFlipGlobal  # on global time
+                        win.timeOnFlip(backimg_3, 'tStartRefresh')  # time at next scr refresh
+                        # add timestamp to datafile
+                        thisExp.timestampOnFlip(win, 'backimg_3.started')
+                        # update status
+                        backimg_3.status = STARTED
+                        backimg_3.setAutoDraw(True)
+                    
+                    # if backimg_3 is active this frame...
+                    if backimg_3.status == STARTED:
+                        # update params
+                        pass
+                    
+                    # if backimg_3 is stopping this frame...
+                    if backimg_3.status == STARTED:
+                        # is it time to stop? (based on global clock, using actual start)
+                        if tThisFlipGlobal > backimg_3.tStartRefresh + 2-frameTolerance:
+                            # keep track of stop time/frame for later
+                            backimg_3.tStop = t  # not accounting for scr refresh
+                            backimg_3.tStopRefresh = tThisFlipGlobal  # on global time
+                            backimg_3.frameNStop = frameN  # exact frame index
+                            # add timestamp to datafile
+                            thisExp.timestampOnFlip(win, 'backimg_3.stopped')
+                            # update status
+                            backimg_3.status = FINISHED
+                            backimg_3.setAutoDraw(False)
                     
                     # *image* updates
                     
@@ -1181,7 +1233,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             mouse.clicked_name = []
             gotValidClick = False  # until a click is received
             # keep track of which components have finished
-            RecallComponents = [recall_txt, textbox, continue_button, mouse]
+            RecallComponents = [backimg_4, recall_txt, textbox, continue_button, mouse]
             for thisComponent in RecallComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -1203,6 +1255,26 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                
+                # *backimg_4* updates
+                
+                # if backimg_4 is starting this frame...
+                if backimg_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    backimg_4.frameNStart = frameN  # exact frame index
+                    backimg_4.tStart = t  # local t and not account for scr refresh
+                    backimg_4.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(backimg_4, 'tStartRefresh')  # time at next scr refresh
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'backimg_4.started')
+                    # update status
+                    backimg_4.status = STARTED
+                    backimg_4.setAutoDraw(True)
+                
+                # if backimg_4 is active this frame...
+                if backimg_4.status == STARTED:
+                    # update params
+                    pass
                 
                 # *recall_txt* updates
                 
@@ -1365,7 +1437,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             thisExp.addData('Feedback.started', globalClock.getTime(format='float'))
             feedback_txt.setText(fbTxt)
             # keep track of which components have finished
-            FeedbackComponents = [feedback_txt]
+            FeedbackComponents = [backimg_5, feedback_txt]
             for thisComponent in FeedbackComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -1387,6 +1459,40 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 tThisFlipGlobal = win.getFutureFlipTime(clock=None)
                 frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                 # update/draw components on each frame
+                
+                # *backimg_5* updates
+                
+                # if backimg_5 is starting this frame...
+                if backimg_5.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    backimg_5.frameNStart = frameN  # exact frame index
+                    backimg_5.tStart = t  # local t and not account for scr refresh
+                    backimg_5.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(backimg_5, 'tStartRefresh')  # time at next scr refresh
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'backimg_5.started')
+                    # update status
+                    backimg_5.status = STARTED
+                    backimg_5.setAutoDraw(True)
+                
+                # if backimg_5 is active this frame...
+                if backimg_5.status == STARTED:
+                    # update params
+                    pass
+                
+                # if backimg_5 is stopping this frame...
+                if backimg_5.status == STARTED:
+                    # is it time to stop? (based on global clock, using actual start)
+                    if tThisFlipGlobal > backimg_5.tStartRefresh + 1.0-frameTolerance:
+                        # keep track of stop time/frame for later
+                        backimg_5.tStop = t  # not accounting for scr refresh
+                        backimg_5.tStopRefresh = tThisFlipGlobal  # on global time
+                        backimg_5.frameNStop = frameN  # exact frame index
+                        # add timestamp to datafile
+                        thisExp.timestampOnFlip(win, 'backimg_5.stopped')
+                        # update status
+                        backimg_5.status = FINISHED
+                        backimg_5.setAutoDraw(False)
                 
                 # *feedback_txt* updates
                 
@@ -1469,7 +1575,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     thisExp.addData('End.started', globalClock.getTime(format='float'))
     Thank_you.setText('您能夠記住的數列共有 ' + str(last_level-1) + '個')
     # keep track of which components have finished
-    EndComponents = [Thank_you]
+    EndComponents = [backimg_6, Thank_you]
     for thisComponent in EndComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1491,6 +1597,26 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
+        
+        # *backimg_6* updates
+        
+        # if backimg_6 is starting this frame...
+        if backimg_6.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            backimg_6.frameNStart = frameN  # exact frame index
+            backimg_6.tStart = t  # local t and not account for scr refresh
+            backimg_6.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(backimg_6, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'backimg_6.started')
+            # update status
+            backimg_6.status = STARTED
+            backimg_6.setAutoDraw(True)
+        
+        # if backimg_6 is active this frame...
+        if backimg_6.status == STARTED:
+            # update params
+            pass
         
         # *Thank_you* updates
         
