@@ -192,7 +192,7 @@ async function experimentInit() {
     text: '',
     font: 'Microsoft JhengHei',
     units: undefined, 
-    pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.05], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([(- 0.6157), (- 0.6706), (- 0.0196)]),  opacity: undefined,
     depth: -2.0 
