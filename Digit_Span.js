@@ -1199,6 +1199,7 @@ function Digit_PresentationRoutineEnd(snapshot) {
 
 
 var entered_text;
+var enter_pressed;
 var RecallComponents;
 function RecallRoutineBegin(snapshot) {
   return async function () {
@@ -1212,7 +1213,9 @@ function RecallRoutineBegin(snapshot) {
     // update component parameters for each repeat
     // Run 'Begin Routine' code from fb_code
     entered_text = "";
+    enter_pressed = false;
     textbox.setText("");
+    psychoJS.eventManager.clearEvents();
     
     psychoJS.experiment.addData('Recall.started', globalClock.getTime());
     // setup some python lists for storing info about the mouse
@@ -1279,8 +1282,9 @@ function RecallRoutineEachFrame() {
                 entered_text = entered_text.slice(0, (- 1));
                 textbox.setText(entered_text);
             } else {
-                if ((key === "return")) {
+                if (((key === "return") && (! enter_pressed))) {
                     continueRoutine = false;
+                    enter_pressed = true;
                 }
             }
         }

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on June 03, 2024, at 17:34
+    on June 03, 2024, at 18:21
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -1223,7 +1223,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update component parameters for each repeat
             thisExp.addData('Recall.started', globalClock.getTime(format='float'))
             # Run 'Begin Routine' code from fb_code
+            # Initialize variables
             entered_text = ''
+            enter_pressed = False  # Flag to track if Enter was pressed
+            # Reset the TextBox text
+            textbox.setText('')
+            # Clear the event buffer to avoid skipping the routine due to earlier key presses
+            event.clearEvents()
+            
             textbox.reset()
             # setup some python lists for storing info about the mouse
             mouse.x = []
@@ -1267,9 +1274,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     elif key == 'backspace':
                         entered_text = entered_text[:-1]
                         textbox.setText(entered_text)
-                    elif key == 'return':
+                    elif key == 'return' and not enter_pressed:
                         # End the routine when Enter is pressed
                         continueRoutine = False
+                        enter_pressed = True  # Set flag to True
+                
                 
                 
                 # *backimg_4* updates
@@ -1435,6 +1444,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 last_level = level
                 trials.finished = True
                 blocks.finished = True
+            
             # store data for trials (TrialHandler)
             trials.addData('mouse.x', mouse.x)
             trials.addData('mouse.y', mouse.y)
