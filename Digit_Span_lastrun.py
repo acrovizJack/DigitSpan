@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on June 03, 2024, at 16:39
+    on June 03, 2024, at 16:50
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -376,7 +376,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     i2_txt = visual.TextStim(win=win, name='i2_txt',
         text='',
         font='Microsoft JhengHei',
-        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+        pos=(0, 0.05), height=0.05, wrapWidth=None, ori=0.0, 
         color=[-0.6157, -0.6706, -0.0196], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-2.0);
@@ -423,7 +423,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='backimg_3', 
         image='stimuli/redesign/digitspan_background.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, 0), size=None,
+        ori=0.0, pos=(0, 0), size=(1.775,1),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=0.0)
@@ -455,7 +455,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='backimg_4', 
         image='stimuli/redesign/digitspan_background.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, 0), size=None,
+        ori=0.0, pos=(0, 0), size=(1.775,1),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=0.0)
@@ -499,7 +499,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='backimg_5', 
         image='stimuli/redesign/digitspan_background.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, 0), size=None,
+        ori=0.0, pos=(0, 0), size=(1.775,1),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=0.0)
@@ -516,7 +516,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='backimg_6', 
         image='stimuli/redesign/digitspan_background.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, 0), size=None,
+        ori=0.0, pos=(0, 0), size=(1.775,1),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=0.0)
