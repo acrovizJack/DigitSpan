@@ -1211,6 +1211,7 @@ function RecallRoutineBegin(snapshot) {
     // update component parameters for each repeat
     // Run 'Begin Routine' code from fb_code
     entered_text = "";
+    textbox.setText("");
     
     psychoJS.experiment.addData('Recall.started', globalClock.getTime());
     // setup some python lists for storing info about the mouse
