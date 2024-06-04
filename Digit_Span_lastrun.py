@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on June 04, 2024, at 16:34
+    on June 04, 2024, at 16:46
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -364,7 +364,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='backimg_2', 
         image='stimuli/redesign/digitspan_background.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, 0), size=(1.777,0.999),
+        ori=0.0, pos=(0, 0), size=(1.775,1),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-1.0)
@@ -1273,6 +1273,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         # End the routine when Enter is pressed
                         continueRoutine = False
                         enter_pressed = True  # Set flag to True
+                    elif key == 'delete':
+                        entered_text = ''
+                        textbox.setText(entered_text)
                 
                 
                 

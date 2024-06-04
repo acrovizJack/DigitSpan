@@ -1285,6 +1285,11 @@ function RecallRoutineEachFrame() {
                 if (((key === "return") && (! enter_pressed))) {
                     continueRoutine = false;
                     enter_pressed = true;
+                } else {
+                    if ((key === "delete")) {
+                        entered_text = "";
+                        textbox.setText(entered_text);
+                    }
                 }
             }
         }
