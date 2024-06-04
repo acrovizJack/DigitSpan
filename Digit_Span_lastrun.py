@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on June 03, 2024, at 18:21
+    on June 04, 2024, at 16:34
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -187,7 +187,7 @@ def setupWindow(expInfo=None, win=None):
         win = visual.Window(
             size=_winSize, fullscr=_fullScr, screen=1,
             winType='pyglet', allowStencil=True,
-            monitor='ExperimentMonitor', color=[0,0,0], colorSpace='rgb',
+            monitor='ExperimentMonitor', color=[1.0000, 1.0000, 1.0000], colorSpace='rgb',
             backgroundImage='', backgroundFit='fill',
             blendMode='avg', useFBO=True,
             units='height', 
@@ -195,16 +195,11 @@ def setupWindow(expInfo=None, win=None):
         )
     else:
         # if we have a window, just set the attributes which are safe to set
-        win.color = [0,0,0]
+        win.color = [1.0000, 1.0000, 1.0000]
         win.colorSpace = 'rgb'
         win.backgroundImage = ''
         win.backgroundFit = 'fill'
         win.units = 'height'
-    if expInfo is not None:
-        # get/measure frame rate if not already in expInfo
-        if win._monitorFrameRate is None:
-            win.getActualFrameRate(infoMsg='Attempting to measure frame rate of screen, please wait...')
-        expInfo['frameRate'] = win._monitorFrameRate
     win.mouseVisible = False
     win.hideMessage()
     # show a visual indicator if we're in piloting mode
@@ -369,14 +364,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='backimg_2', 
         image='stimuli/redesign/digitspan_background.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, 0), size=(1.775,1),
+        ori=0.0, pos=(0, 0), size=(1.777,0.999),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-1.0)
     i2_txt = visual.TextStim(win=win, name='i2_txt',
         text='',
         font='Microsoft JhengHei',
-        pos=(0, 0.05), height=0.05, wrapWidth=None, ori=0.0, 
+        pos=(0, 0.055), height=0.05, wrapWidth=None, ori=0.0, 
         color=[-0.6157, -0.6706, -0.0196], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-2.0);
@@ -392,7 +387,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='backButton_2', 
         image='stimuli/backButtonImage.png', mask=None, anchor='center',
-        ori=0.0, pos=(-0.25, -0.3), size=None,
+        ori=0.0, pos=(-0.25, -0.3), size=(0.185,0.06),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-5.0)
@@ -400,7 +395,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='nextButton_2', 
         image='stimuli/nextButtonImage.png', mask=None, anchor='center',
-        ori=0.0, pos=(0.25, -0.3), size=None,
+        ori=0.0, pos=(0.25, -0.3), size=(0.185,0.06),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-6.0)
@@ -408,7 +403,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='start_2', 
         image='stimuli/startButtonImage.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, -0.375), size=None,
+        ori=0.0, pos=(0, -0.375), size=(0.185,0.06),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-7.0)
@@ -486,7 +481,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='continue_button', 
         image='stimuli/redesign/continue_button.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, -0.2), size=None,
+        ori=0.0, pos=(0, -0.2), size=(0.276,0.074),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-4.0)

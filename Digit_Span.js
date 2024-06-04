@@ -27,7 +27,7 @@ const psychoJS = new PsychoJS({
 // open window:
 psychoJS.openWindow({
   fullscr: true,
-  color: new util.Color([0,0,0]),
+  color: new util.Color([1.0, 1.0, 1.0]),
   units: 'height',
   waitBlanking: true,
   backgroundImage: '',
@@ -200,7 +200,7 @@ async function experimentInit() {
     text: '',
     font: 'Microsoft JhengHei',
     units: undefined, 
-    pos: [0, 0.05], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.055], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([(- 0.6157), (- 0.6706), (- 0.0196)]),  opacity: undefined,
     depth: -2.0 
@@ -225,7 +225,7 @@ async function experimentInit() {
     name : 'backButton_2', units : undefined, 
     image : 'stimuli/backButtonImage.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [(- 0.25), (- 0.3)], size : undefined,
+    ori : 0.0, pos : [(- 0.25), (- 0.3)], size : [0.185, 0.06],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -5.0 
@@ -235,7 +235,7 @@ async function experimentInit() {
     name : 'nextButton_2', units : undefined, 
     image : 'stimuli/nextButtonImage.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0.25, (- 0.3)], size : undefined,
+    ori : 0.0, pos : [0.25, (- 0.3)], size : [0.185, 0.06],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -6.0 
@@ -245,7 +245,7 @@ async function experimentInit() {
     name : 'start_2', units : undefined, 
     image : 'stimuli/startButtonImage.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, (- 0.375)], size : undefined,
+    ori : 0.0, pos : [0, (- 0.375)], size : [0.185, 0.06],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -7.0 
@@ -355,7 +355,7 @@ async function experimentInit() {
     name : 'continue_button', units : undefined, 
     image : 'stimuli/redesign/continue_button.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, (- 0.2)], size : undefined,
+    ori : 0.0, pos : [0, (- 0.2)], size : [0.276, 0.074],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -4.0 
@@ -895,6 +895,7 @@ function Instruction2RoutineEnd(snapshot) {
         thisComponent.setAutoDraw(false);
       }
     }
+    psychoJS.experiment.addData('Instruction2.stopped', globalClock.getTime());
     // Run 'End Routine' code from code_5
     var _pj;
     function _pj_snippets(container) {
@@ -940,7 +941,6 @@ function Instruction2RoutineEnd(snapshot) {
         }
     }
     
-    psychoJS.experiment.addData('Instruction2.stopped', globalClock.getTime());
     // update the trial handler
     if (currentLoop instanceof MultiStairHandler) {
       currentLoop.addResponse(key_resp_2.corr, level);
@@ -1211,13 +1211,13 @@ function RecallRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
+    psychoJS.experiment.addData('Recall.started', globalClock.getTime());
     // Run 'Begin Routine' code from fb_code
     entered_text = "";
     enter_pressed = false;
     textbox.setText("");
     psychoJS.eventManager.clearEvents();
     
-    psychoJS.experiment.addData('Recall.started', globalClock.getTime());
     // setup some python lists for storing info about the mouse
     // current position of the mouse:
     mouse.x = [];
@@ -1404,6 +1404,7 @@ function RecallRoutineEnd(snapshot) {
         thisComponent.setAutoDraw(false);
       }
     }
+    psychoJS.experiment.addData('Recall.stopped', globalClock.getTime());
     // Run 'End Routine' code from fb_code
     if ((textbox.text === digits.toString())) {
         correct = 1;
@@ -1421,7 +1422,6 @@ function RecallRoutineEnd(snapshot) {
         blocks.finished = true;
     }
     
-    psychoJS.experiment.addData('Recall.stopped', globalClock.getTime());
     // store data for psychoJS.experiment (ExperimentHandler)
     if (mouse.x) {  psychoJS.experiment.addData('mouse.x', mouse.x[0])};
     if (mouse.y) {  psychoJS.experiment.addData('mouse.y', mouse.y[0])};
@@ -1563,8 +1563,8 @@ function EndRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    Thank_you.setText((("\u60a8\u80fd\u5920\u8a18\u4f4f\u7684\u6578\u5217\u5171\u6709 " + (last_level - 1).toString()) + "\u500b"));
     psychoJS.experiment.addData('End.started', globalClock.getTime());
+    Thank_you.setText((("\u60a8\u80fd\u5920\u8a18\u4f4f\u7684\u6578\u5217\u5171\u6709 " + (last_level - 1).toString()) + "\u500b"));
     // keep track of which components have finished
     EndComponents = [];
     EndComponents.push(backimg_6);
