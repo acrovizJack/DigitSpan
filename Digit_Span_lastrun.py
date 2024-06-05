@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on June 04, 2024, at 16:46
+    on June 05, 2024, at 14:24
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -252,6 +252,12 @@ def setupDevices(expInfo, thisExp, win):
             deviceClass='keyboard',
             deviceName='key_resp_2',
         )
+    if deviceManager.getDevice('key_resp') is None:
+        # initialise key_resp
+        key_resp = deviceManager.addDevice(
+            deviceClass='keyboard',
+            deviceName='key_resp',
+        )
     # return True if completed successfully
     return True
 
@@ -488,6 +494,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     mouse = event.Mouse(win=win)
     x, y = [None, None]
     mouse.mouseClock = core.Clock()
+    key_resp = keyboard.Keyboard(deviceName='key_resp')
     
     # --- Initialize components for Routine "Feedback" ---
     backimg_5 = visual.ImageStim(
@@ -1236,8 +1243,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             mouse.time = []
             mouse.clicked_name = []
             gotValidClick = False  # until a click is received
+            key_resp.keys = []
+            key_resp.rt = []
+            _key_resp_allKeys = []
             # keep track of which components have finished
-            RecallComponents = [backimg_4, recall_txt, textbox, continue_button, mouse]
+            RecallComponents = [backimg_4, recall_txt, textbox, continue_button, mouse, key_resp]
             for thisComponent in RecallComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -1273,7 +1283,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         # End the routine when Enter is pressed
                         continueRoutine = False
                         enter_pressed = True  # Set flag to True
-                    elif key == 'delete':
+                    elif key == 'space':
                         entered_text = ''
                         textbox.setText(entered_text)
                 
@@ -1397,6 +1407,32 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             if gotValidClick:
                                 continueRoutine = False  # end routine on response
                 
+                # *key_resp* updates
+                waitOnFlip = False
+                
+                # if key_resp is starting this frame...
+                if key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    key_resp.frameNStart = frameN  # exact frame index
+                    key_resp.tStart = t  # local t and not account for scr refresh
+                    key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(key_resp, 'tStartRefresh')  # time at next scr refresh
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'key_resp.started')
+                    # update status
+                    key_resp.status = STARTED
+                    # keyboard checking is just starting
+                    waitOnFlip = True
+                    win.callOnFlip(key_resp.clock.reset)  # t=0 on next screen flip
+                    win.callOnFlip(key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+                if key_resp.status == STARTED and not waitOnFlip:
+                    theseKeys = key_resp.getKeys(keyList=['1','2','3','4','5','6','7','8','9','backspace','delete','return'], ignoreKeys=["escape"], waitRelease=False)
+                    _key_resp_allKeys.extend(theseKeys)
+                    if len(_key_resp_allKeys):
+                        key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
+                        key_resp.rt = _key_resp_allKeys[-1].rt
+                        key_resp.duration = _key_resp_allKeys[-1].duration
+                
                 # check for quit (typically the Esc key)
                 if defaultKeyboard.getKeys(keyList=["escape"]):
                     thisExp.status = FINISHED
@@ -1442,7 +1478,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 last_level = level
                 trials.finished = True
                 blocks.finished = True
-            
+            thisExp.addData('Response', entered_text)
             # store data for trials (TrialHandler)
             trials.addData('mouse.x', mouse.x)
             trials.addData('mouse.y', mouse.y)
@@ -1451,6 +1487,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trials.addData('mouse.rightButton', mouse.rightButton)
             trials.addData('mouse.time', mouse.time)
             trials.addData('mouse.clicked_name', mouse.clicked_name)
+            # check responses
+            if key_resp.keys in ['', [], None]:  # No response was made
+                key_resp.keys = None
+            trials.addData('key_resp.keys',key_resp.keys)
+            if key_resp.keys != None:  # we had a response
+                trials.addData('key_resp.rt', key_resp.rt)
+                trials.addData('key_resp.duration', key_resp.duration)
             # the Routine "Recall" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
