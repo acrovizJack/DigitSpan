@@ -21,6 +21,12 @@
   <defs
      id="defs2040">
     <rect
+       x="2914.6058"
+       y="3416.2096"
+       width="638.60581"
+       height="234.22912"
+       id="rect5" />
+    <rect
        x="2881.4601"
        y="2717.9417"
        width="13.258252"
@@ -145,15 +151,15 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.45254834"
-     inkscape:cx="2514.6485"
-     inkscape:cy="2964.3242"
+     inkscape:cx="3436.097"
+     inkscape:cy="2431.7844"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
-     inkscape:window-x="-8"
+     inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      units="px"
@@ -2846,26 +2852,26 @@
        transform="translate(-16.95491,7.0158251)"><tspan
          x="560.68134"
          y="219.82918"
-         id="tspan51">在這個實驗中，你需要嘗試記住螢幕上顯示的數字。</tspan><tspan
+         id="tspan1">在這個實驗中，你需要嘗試記住螢幕上顯示的數字。</tspan><tspan
          x="560.68134"
          y="230.41252"
-         id="tspan52">所有數字都在0到9之間。
+         id="tspan2">所有數字都在0到9之間。
 </tspan><tspan
          x="560.68134"
          y="240.99586"
-         id="tspan53">
+         id="tspan3">
 </tspan><tspan
          x="560.68134"
          y="251.5792"
-         id="tspan54">你會看到一串數字，依序顯示。
+         id="tspan4">你會看到一串數字，依序顯示。
 </tspan><tspan
          x="560.68134"
          y="262.16255"
-         id="tspan55">
+         id="tspan6">
 </tspan><tspan
          x="560.68134"
          y="272.74589"
-         id="tspan56">請記住整串數字 ······
+         id="tspan7">請記住整串數字 ······
 </tspan></text>
     <rect
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#f2f2f2;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4.46734;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
@@ -2887,31 +2893,31 @@
        transform="matrix(2.4632122,0,0,2.4632122,-1488.0532,104.76939)"><tspan
          x="656.18561"
          y="219.82918"
-         id="tspan57">在這個實驗中，
+         id="tspan8">在這個實驗中，
 </tspan><tspan
          x="656.18561"
          y="230.41252"
-         id="tspan58">你需要嘗試記住螢幕上顯示的數字。
+         id="tspan9">你需要嘗試記住螢幕上顯示的數字。
 </tspan><tspan
          x="656.18561"
          y="240.99586"
-         id="tspan59">所有數字都在0到9之間。
+         id="tspan10">所有數字都在0到9之間。
 </tspan><tspan
          x="656.18561"
          y="251.5792"
-         id="tspan60">
+         id="tspan12">
 </tspan><tspan
          x="656.18561"
          y="262.16255"
-         id="tspan61">你會看到一串數字，依序顯示。
+         id="tspan13">你會看到一串數字，依序顯示。
 </tspan><tspan
          x="656.18561"
          y="272.74589"
-         id="tspan62">
+         id="tspan15">
 </tspan><tspan
          x="656.18561"
          y="283.32923"
-         id="tspan63">請記住整串數字 ······
+         id="tspan16">請記住整串數字 ······
 </tspan></text>
     <rect
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#f2f2f2;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:4.44066;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
@@ -3228,25 +3234,30 @@
        transform="matrix(2.4632122,0,0,2.4632122,-878.97118,104.72866)"><tspan
          x="639.22748"
          y="219.82918"
-         id="tspan64">一旦你記住這些數字後，你需要重述它們。
+         id="tspan17">一旦你記住這些數字後，你需要重述它們。
 </tspan><tspan
          x="639.22748"
          y="230.41252"
-         id="tspan65">
+         id="tspan18">
 </tspan><tspan
          x="639.22748"
          y="240.99586"
-         id="tspan66">在方塊中輸入剛剛顯示過的數字
+         id="tspan19">在方塊中輸入剛剛顯示過的數字
 </tspan><tspan
          x="639.22748"
          y="251.5792"
-         id="tspan67">
+         id="tspan20">(空白鍵清除輸入的內容)
 </tspan><tspan
          x="639.22748"
          y="262.16255"
-         id="tspan68">完成後請按 Continue</tspan></text>
+         id="tspan21">
+</tspan><tspan
+         x="639.22748"
+         y="272.74589"
+         id="tspan22">完成後請按 送出答案</tspan></text>
     <g
-       id="g3">
+       id="g3"
+       transform="translate(97.636899,-161.94863)">
       <g
          id="g24"
          transform="translate(83.829883,61.204054)">
@@ -3277,6 +3288,45 @@
              x="548.37885"
              y="875.24481"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Microsoft JhengHei';-inkscape-font-specification:'Microsoft JhengHei';fill:#322a7e;fill-opacity:0.996078;stroke-width:1.83317">送出答案</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g3-0"
+       style="display:inline"
+       transform="translate(174.95881,2.7097516)"
+       inkscape:export-filename="redesign\end_experiment.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g24-9"
+         transform="translate(83.829883,61.204054)">
+        <rect
+           style="display:inline;fill:#f2cdae;fill-opacity:0.996078;stroke-width:2.03841;stroke-linecap:round;stroke-miterlimit:1.4;stroke-dashoffset:14.8219;paint-order:stroke markers fill;stop-color:#000000"
+           id="rect1046-9-0-4"
+           width="133.43445"
+           height="26.458332"
+           x="525.20667"
+           y="855.47473"
+           rx="6.5968447"
+           ry="6.6314759"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"
+           inkscape:export-filename="continue_button.png" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5594px;line-height:1.25;font-family:'Microsoft JhengHei';-inkscape-font-specification:'Microsoft JhengHei';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;display:inline;fill:#322a7e;fill-opacity:0.996078;stroke-width:1.83317;stroke-linecap:round;stroke-miterlimit:1.4;stroke-dashoffset:14.8219;paint-order:stroke markers fill;stop-color:#000000"
+           x="548.37885"
+           y="875.24481"
+           id="text1050-7-43-1"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96"
+           inkscape:export-filename="redesign\continue_button.png"
+           transform="scale(0.99738535,1.0026215)"><tspan
+             sodipodi:role="line"
+             id="tspan1048-7-3-4"
+             x="548.37885"
+             y="875.24481"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Microsoft JhengHei';-inkscape-font-specification:'Microsoft JhengHei';fill:#322a7e;fill-opacity:0.996078;stroke-width:1.83317">結束測驗</tspan></text>
       </g>
     </g>
     <g
@@ -3728,13 +3778,13 @@
          xml:space="preserve"><tspan
            x="255.70802"
            y="554.133"
-           id="tspan69">按下Clear，</tspan><tspan
+           id="tspan23">按下Clear，</tspan><tspan
            x="255.70802"
            y="584.133"
-           id="tspan70">刪除最後點擊</tspan><tspan
+           id="tspan24">刪除最後點擊</tspan><tspan
            x="255.70802"
            y="614.133"
-           id="tspan71">的數字</tspan></text>
+           id="tspan25">的數字</tspan></text>
       <g
          transform="translate(34.133831,43.906543)"
          id="g4-8">
@@ -4025,37 +4075,37 @@
          transform="translate(-8.2682292)"><tspan
            x="776.41797"
            y="221.58315"
-           id="tspan72">一旦你記住這些數字後，你需要重述它們。
+           id="tspan26">一旦你記住這些數字後，你需要重述它們。
 </tspan><tspan
            x="776.41797"
            y="232.16648"
-           id="tspan73">
+           id="tspan27">
 </tspan><tspan
            x="776.41797"
            y="242.74983"
-           id="tspan74">你會在螢幕上看到一個數字鍵盤。使用滑鼠按順序點</tspan><tspan
+           id="tspan28">你會在螢幕上看到一個數字鍵盤。使用滑鼠按順序點</tspan><tspan
            x="776.41797"
            y="253.33317"
-           id="tspan75">擊這些數字，順序需要與題目的順序相同。
+           id="tspan29">擊這些數字，順序需要與題目的順序相同。
 </tspan><tspan
            x="776.41797"
            y="263.91651"
-           id="tspan76">
+           id="tspan32">
 </tspan><tspan
            x="776.41797"
            y="274.49986"
-           id="tspan77">如果你犯了錯誤，你可以按下               清除最後輸入</tspan><tspan
+           id="tspan33">如果你犯了錯誤，你可以按下               清除最後輸入</tspan><tspan
            x="776.41797"
            y="285.0832"
-           id="tspan78">的數字。當你輸入完所有數字後，點擊                。
+           id="tspan35">的數字。當你輸入完所有數字後，點擊                。
 </tspan><tspan
            x="776.41797"
            y="295.66654"
-           id="tspan79">
+           id="tspan36">
 </tspan><tspan
            x="776.41797"
            y="306.24989"
-           id="tspan80">電腦會告訴你你是否正確記住了這些數字。
+           id="tspan37">電腦會告訴你你是否正確記住了這些數字。
 </tspan></text>
       <g
          id="g1987-1"
@@ -4143,37 +4193,37 @@
          transform="translate(107.86868,195.13673)"><tspan
            x="776.41797"
            y="221.58315"
-           id="tspan81">一旦你記住這些數字後，你需要重述它們。
+           id="tspan38">一旦你記住這些數字後，你需要重述它們。
 </tspan><tspan
            x="776.41797"
            y="232.16648"
-           id="tspan82">
+           id="tspan39">
 </tspan><tspan
            x="776.41797"
            y="242.74983"
-           id="tspan83">你會在螢幕上看到一個數字鍵盤。使用滑鼠按順序點</tspan><tspan
+           id="tspan40">你會在螢幕上看到一個數字鍵盤。使用滑鼠按順序點</tspan><tspan
            x="776.41797"
            y="253.33317"
-           id="tspan84">擊這些數字，順序需要與題目的順序相同。
+           id="tspan41">擊這些數字，順序需要與題目的順序相同。
 </tspan><tspan
            x="776.41797"
            y="263.91651"
-           id="tspan85">
+           id="tspan42">
 </tspan><tspan
            x="776.41797"
            y="274.49986"
-           id="tspan86">如果你犯了錯誤，你可以按下               清除最後輸入</tspan><tspan
+           id="tspan43">如果你犯了錯誤，你可以按下               清除最後輸入</tspan><tspan
            x="776.41797"
            y="285.0832"
-           id="tspan87">的數字。當你輸入完所有數字後，點擊                。
+           id="tspan44">的數字。當你輸入完所有數字後，點擊                。
 </tspan><tspan
            x="776.41797"
            y="295.66654"
-           id="tspan88">
+           id="tspan45">
 </tspan><tspan
            x="776.41797"
            y="306.24989"
-           id="tspan89">電腦會告訴你你是否正確記住了這些數字。
+           id="tspan46">電腦會告訴你你是否正確記住了這些數字。
 </tspan></text>
     </g>
     <g
@@ -4892,26 +4942,31 @@
        transform="translate(47.768421,196.90437)"><tspan
          x="560.68134"
          y="219.82918"
-         id="tspan90">在這個實驗中，你需要嘗試記住螢幕上顯示的數字。</tspan><tspan
+         id="tspan47">在這個實驗中，你需要嘗試記住螢幕上顯示的數字。</tspan><tspan
          x="560.68134"
          y="230.41252"
-         id="tspan91">所有數字都在0到9之間。
+         id="tspan48">所有數字都在0到9之間。
 </tspan><tspan
          x="560.68134"
          y="240.99586"
-         id="tspan92">
+         id="tspan49">
 </tspan><tspan
          x="560.68134"
          y="251.5792"
-         id="tspan93">你會看到一串數字，依序顯示。
+         id="tspan50">你會看到一串數字，依序顯示。
 </tspan><tspan
          x="560.68134"
          y="262.16255"
-         id="tspan94">
+         id="tspan51">
 </tspan><tspan
          x="560.68134"
          y="272.74589"
-         id="tspan95">請記住整串數字 ······
+         id="tspan52">請記住整串數字 ······
 </tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text5"
+       style="fill:#f5cfb2;stroke-width:3.59055118;stroke-linejoin:bevel;paint-order:stroke markers fill;-inkscape-font-specification:'Microsoft JhengHei Bold';font-family:'Microsoft JhengHei';font-weight:bold;font-size:32px;stroke-linecap:round;stroke:#322a7e;opacity:0;fill-opacity:0.99607843;text-align:center;white-space:pre;shape-inside:url(#rect5)" />
   </g>
 </svg>
