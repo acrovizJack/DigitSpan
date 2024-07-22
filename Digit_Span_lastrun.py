@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on July 19, 2024, at 16:25
+    on July 22, 2024, at 11:36
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -43,8 +43,9 @@ psychopyVersion = '2024.1.4'
 expName = 'Digit_Span'  # from the Builder filename that created this script
 # information about this experiment
 expInfo = {
-    'participant': f"{randint(0, 999999):06.0f}",
-    'session': '001',
+    '姓名': '王小明',
+    '電話': '0900-000-000',
+    '電子郵件': 'YourMail@gmail.com',
     'date|hid': data.getDateStr(),
     'expName|hid': expName,
     'psychopyVersion|hid': psychopyVersion,
@@ -60,7 +61,7 @@ or run the experiment with `--pilot` as an argument. To change what pilot
 PILOTING = core.setPilotModeFromArgs()
 # start off with values from experiment settings
 _fullScr = True
-_winSize = [1920, 1080]
+_winSize = [1080, 1920]
 _loggingLevel = logging.getLevel('warning')
 # if in pilot mode, apply overrides according to preferences
 if PILOTING:
@@ -121,7 +122,7 @@ def setupData(expInfo, dataDir=None):
     # data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
     if dataDir is None:
         dataDir = _thisDir
-    filename = u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])
+    filename = u'data/%s_%s_%s' % (expInfo['姓名'], expName, expInfo['date'])
     # make sure filename is relative to dataDir
     if os.path.isabs(filename):
         dataDir = os.path.commonprefix([dataDir, filename])
@@ -455,21 +456,21 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='image', 
         image='stimuli/redesign/plain.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, 0), size=(0.1, 0.1),
+        ori=0.0, pos=(0, 0), size=(0.2, 0.2),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-1.0)
     Fixation = visual.TextStim(win=win, name='Fixation',
         text='+',
         font='Arial',
-        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+        pos=(0, 0), height=0.15, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-2.0);
     pres_text = visual.TextStim(win=win, name='pres_text',
         text='',
         font='Arial',
-        pos=(0, 0.005), height=0.1, wrapWidth=None, ori=0.0, 
+        pos=(0, 0.005), height=0.15, wrapWidth=None, ori=0.0, 
         color=[-0.6078, -0.6706, -0.0118], colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=-3.0);
@@ -510,10 +511,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='continue_button', 
         image='stimuli/redesign/continue_button.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, -0.2), size=(0.276,0.074),
+        ori=0.0, pos=(0.2, -0.2), size=(0.35,0.1),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-4.0)
+    clear_button = visual.ImageStim(
+        win=win,
+        name='clear_button', 
+        image='stimuli/redesign/clear.png', mask=None, anchor='center',
+        ori=0.0, pos=(-0.2, -0.2), size=(0.35,0.1),
+        color=[1,1,1], colorSpace='rgb', opacity=None,
+        flipHoriz=False, flipVert=False,
+        texRes=128.0, interpolate=True, depth=-5.0)
     mouse = event.Mouse(win=win)
     x, y = [None, None]
     mouse.mouseClock = core.Clock()
@@ -989,11 +998,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisComponent.setAutoDraw(False)
         thisExp.addData('Instruction2.stopped', globalClock.getTime(format='float'))
         # Run 'End Routine' code from code_5
-        if 'backButton_2' in mouse_3.clicked_name:
+        if 'backButton_2' in mouse_3.clicked_name or key_resp_2.keys == 'left':
             slideN -= 1
-        elif 'nextButton_2' in mouse_3.clicked_name:
+        elif 'nextButton_2' in mouse_3.clicked_name or key_resp_2.keys == 'right':
             slideN += 1
-        elif 'start_2' in mouse_3.clicked_name:
+        elif 'start_2' in mouse_3.clicked_name or key_resp_2.keys == 'space':
             Instruct_Loop.finished = True
         
         # Constrain slideN within the valid range
@@ -1395,7 +1404,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             key_resp.rt = []
             _key_resp_allKeys = []
             # keep track of which components have finished
-            RecallComponents = [backimg_4, recall_txt, textbox, continue_button, mouse, key_resp]
+            RecallComponents = [backimg_4, recall_txt, textbox, continue_button, clear_button, mouse, key_resp]
             for thisComponent in RecallComponents:
                 thisComponent.tStart = None
                 thisComponent.tStop = None
@@ -1420,11 +1429,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 # Run 'Each Frame' code from fb_code
                 # Check for key presses
                 keys = event.getKeys()
+                if mouse.isPressedIn(clear_button):
+                    entered_text = ''
+                    textbox.setText(entered_text)
+                elif mouse.isPressedIn(continue_button):
+                    continueRoutine = False
                 for key in keys:
                     if key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']:
                         entered_text += key
                         textbox.setText(entered_text)
-                    elif key == 'backspace':
+                    elif key == 'left':
                         entered_text = entered_text[:-1]
                         textbox.setText(entered_text)
                     elif key == 'return' and not enter_pressed:
@@ -1516,6 +1530,26 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 if continue_button.status == STARTED:
                     # update params
                     pass
+                
+                # *clear_button* updates
+                
+                # if clear_button is starting this frame...
+                if clear_button.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                    # keep track of start time/frame for later
+                    clear_button.frameNStart = frameN  # exact frame index
+                    clear_button.tStart = t  # local t and not account for scr refresh
+                    clear_button.tStartRefresh = tThisFlipGlobal  # on global time
+                    win.timeOnFlip(clear_button, 'tStartRefresh')  # time at next scr refresh
+                    # add timestamp to datafile
+                    thisExp.timestampOnFlip(win, 'clear_button.started')
+                    # update status
+                    clear_button.status = STARTED
+                    clear_button.setAutoDraw(True)
+                
+                # if clear_button is active this frame...
+                if clear_button.status == STARTED:
+                    # update params
+                    pass
                 # *mouse* updates
                 
                 # if mouse is starting this frame...
@@ -1538,7 +1572,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if sum(buttons) > 0:  # state changed to a new click
                             # check if the mouse was inside our 'clickable' objects
                             gotValidClick = False
-                            clickableList = environmenttools.getFromNames(continue_button, namespace=locals())
+                            clickableList = environmenttools.getFromNames([continue_button,], namespace=locals())
                             for obj in clickableList:
                                 # is this object clicked on?
                                 if obj.contains(mouse):
@@ -1552,8 +1586,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             mouse.midButton.append(buttons[1])
                             mouse.rightButton.append(buttons[2])
                             mouse.time.append(mouse.mouseClock.getTime())
-                            if gotValidClick:
-                                continueRoutine = False  # end routine on response
                 
                 # *key_resp* updates
                 waitOnFlip = False
@@ -2074,6 +2106,7 @@ def quit(thisExp, win=None, thisSession=None):
 # if running this experiment as a script...
 if __name__ == '__main__':
     # call all functions in order
+    expInfo = showExpInfoDlg(expInfo=expInfo)
     thisExp = setupData(expInfo=expInfo)
     logFile = setupLogging(filename=thisExp.dataFileName)
     win = setupWindow(expInfo=expInfo)

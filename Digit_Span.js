@@ -14,8 +14,9 @@ const { round } = util;
 // store info about the experiment session:
 let expName = 'Digit_Span';  // from the Builder filename that created this script
 let expInfo = {
-    'participant': `${util.pad(Number.parseFloat(util.randint(0, 999999)).toFixed(0), 6)}`,
-    'session': '001',
+    '姓名': '王小明',
+    '電話': '0900-000-000',
+    '電子郵件': 'YourMail@gmail.com',
 };
 
 // Start code blocks for 'Before Experiment'
@@ -141,7 +142,7 @@ async function updateInfo() {
   
 
   
-  psychoJS.experiment.dataFileName = (("." + "/") + `data/${expInfo["participant"]}_${expName}_${expInfo["date"]}`);
+  psychoJS.experiment.dataFileName = (("." + "/") + `data/${expInfo["\u59d3\u540d"]}_${expName}_${expInfo["date"]}`);
   psychoJS.experiment.field_separator = '\t';
 
 
