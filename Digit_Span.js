@@ -567,7 +567,7 @@ function introRoutineEachFrame() {
     }
     
     if (EndIntroKey.status === PsychoJS.Status.STARTED) {
-      let theseKeys = EndIntroKey.getKeys({keyList: ['left', 'right', 'space'], waitRelease: false});
+      let theseKeys = EndIntroKey.getKeys({keyList: ['left', 'right', 'space', 'return'], waitRelease: false});
       _EndIntroKey_allKeys = _EndIntroKey_allKeys.concat(theseKeys);
       if (_EndIntroKey_allKeys.length > 0) {
         EndIntroKey.keys = _EndIntroKey_allKeys[_EndIntroKey_allKeys.length - 1].name;  // just the last key pressed

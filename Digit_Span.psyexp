@@ -1268,7 +1268,7 @@
         <Param val="1" valType="num" updates="None" name="volume"/>
       </MovieComponent>
       <KeyboardComponent name="EndIntroKey" plugin="None">
-        <Param val="'left','right','space'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'left','right','space','return'" valType="list" updates="constant" name="allowedKeys"/>
         <Param val="" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
