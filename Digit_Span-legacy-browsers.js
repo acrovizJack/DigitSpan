@@ -146,6 +146,7 @@ var introClock;
 var movieClock;
 var movie;
 var EndIntroKey;
+var mouse_4;
 var Instruction2Clock;
 var slideN;
 var instruct_txt;
@@ -204,6 +205,10 @@ async function experimentInit() {
     });
   EndIntroKey = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
+  mouse_4 = new core.Mouse({
+    win: psychoJS.window,
+  });
+  mouse_4.mouseClock = new util.Clock();
   // Initialize components for Routine "Instruction2"
   Instruction2Clock = new util.Clock();
   // Run 'Begin Experiment' code from code_5
@@ -361,7 +366,7 @@ async function experimentInit() {
     placeholder: undefined,
     font: 'Arial',
     pos: [0, 0], 
-    letterHeight: 0.05,
+    letterHeight: 0.15,
     lineSpacing: 1.0,
     size: [1, 0.2],  units: undefined, 
     color: [(- 0.6078), (- 0.6706), (- 0.0118)], colorSpace: 'rgb',
@@ -422,7 +427,7 @@ async function experimentInit() {
     text: '',
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([(- 0.6157), (- 0.6706), (- 0.0196)]),  opacity: undefined,
     depth: -1.0 
@@ -446,7 +451,7 @@ async function experimentInit() {
     text: '',
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: 0.075,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([(- 0.6078), (- 0.6706), (- 0.0118)]),  opacity: undefined,
     depth: -1.0 
@@ -480,6 +485,7 @@ var t;
 var frameN;
 var continueRoutine;
 var _EndIntroKey_allKeys;
+var gotValidClick;
 var introComponents;
 function introRoutineBegin(snapshot) {
   return async function () {
@@ -495,10 +501,20 @@ function introRoutineBegin(snapshot) {
     EndIntroKey.keys = undefined;
     EndIntroKey.rt = undefined;
     _EndIntroKey_allKeys = [];
+    // setup some python lists for storing info about the mouse_4
+    // current position of the mouse:
+    mouse_4.x = [];
+    mouse_4.y = [];
+    mouse_4.leftButton = [];
+    mouse_4.midButton = [];
+    mouse_4.rightButton = [];
+    mouse_4.time = [];
+    gotValidClick = false; // until a click is received
     // keep track of which components have finished
     introComponents = [];
     introComponents.push(movie);
     introComponents.push(EndIntroKey);
+    introComponents.push(mouse_4);
     
     introComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -509,6 +525,9 @@ function introRoutineBegin(snapshot) {
 }
 
 
+var prevButtonState;
+var _mouseButtons;
+var _mouseXYs;
 function introRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'intro' ---
@@ -552,6 +571,33 @@ function introRoutineEachFrame() {
       }
     }
     
+    // *mouse_4* updates
+    if (t >= 0.0 && mouse_4.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      mouse_4.tStart = t;  // (not accounting for frame time here)
+      mouse_4.frameNStart = frameN;  // exact frame index
+      
+      mouse_4.status = PsychoJS.Status.STARTED;
+      mouse_4.mouseClock.reset();
+      prevButtonState = mouse_4.getPressed();  // if button is down already this ISN'T a new click
+      }
+    if (mouse_4.status === PsychoJS.Status.STARTED) {  // only update if started and not finished!
+      _mouseButtons = mouse_4.getPressed();
+      if (!_mouseButtons.every( (e,i,) => (e == prevButtonState[i]) )) { // button state changed?
+        prevButtonState = _mouseButtons;
+        if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
+          _mouseXYs = mouse_4.getPos();
+          mouse_4.x.push(_mouseXYs[0]);
+          mouse_4.y.push(_mouseXYs[1]);
+          mouse_4.leftButton.push(_mouseButtons[0]);
+          mouse_4.midButton.push(_mouseButtons[1]);
+          mouse_4.rightButton.push(_mouseButtons[2]);
+          mouse_4.time.push(mouse_4.mouseClock.getTime());
+          // end routine on response
+          continueRoutine = false;
+        }
+      }
+    }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -601,6 +647,14 @@ function introRoutineEnd(snapshot) {
         }
     
     EndIntroKey.stop();
+    // store data for psychoJS.experiment (ExperimentHandler)
+    if (mouse_4.x) {  psychoJS.experiment.addData('mouse_4.x', mouse_4.x[0])};
+    if (mouse_4.y) {  psychoJS.experiment.addData('mouse_4.y', mouse_4.y[0])};
+    if (mouse_4.leftButton) {  psychoJS.experiment.addData('mouse_4.leftButton', mouse_4.leftButton[0])};
+    if (mouse_4.midButton) {  psychoJS.experiment.addData('mouse_4.midButton', mouse_4.midButton[0])};
+    if (mouse_4.rightButton) {  psychoJS.experiment.addData('mouse_4.rightButton', mouse_4.rightButton[0])};
+    if (mouse_4.time) {  psychoJS.experiment.addData('mouse_4.time', mouse_4.time[0])};
+    
     // the Routine "intro" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -875,7 +929,6 @@ function blocksLoopEndIteration(scheduler, snapshot) {
 
 
 var _key_resp_2_allKeys;
-var gotValidClick;
 var Instruction2Components;
 function Instruction2RoutineBegin(snapshot) {
   return async function () {
@@ -923,9 +976,6 @@ function Instruction2RoutineBegin(snapshot) {
 }
 
 
-var prevButtonState;
-var _mouseButtons;
-var _mouseXYs;
 function Instruction2RoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'Instruction2' ---
