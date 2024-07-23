@@ -742,7 +742,7 @@ function blocksLoopBegin(blocksLoopScheduler, snapshot) {
     // set up handler to look after randomisation of conditions etc
     blocks = new TrialHandler({
       psychoJS: psychoJS,
-      nReps: 4, method: TrialHandler.Method.SEQUENTIAL,
+      nReps: 15, method: TrialHandler.Method.SEQUENTIAL,
       extraInfo: expInfo, originPath: undefined,
       trialList: undefined,
       seed: undefined, name: 'blocks'
