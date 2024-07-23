@@ -97,8 +97,8 @@
       <CodeComponent name="code_5" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="slideN = 1&amp;#10;instruct_txt = '在這個實驗中，\n\n你需要嘗試記住螢幕上顯示的數字。\n\n所有數字都在0到9之間。\n\n你會看到一串數字，依序顯示\n\n請記住整串數字'&amp;#10;&amp;#10;maxSlideN = 2&amp;#10;minSlideN = 1" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="slideN = 1;&amp;#10;instruct_txt = &quot;\u5728\u9019\u500b\u5be6\u9a57\u4e2d\uff0c\n\n\u4f60\u9700\u8981\u5617\u8a66\u8a18\u4f4f\u87a2\u5e55\u4e0a\u986f\u793a\u7684\u6578\u5b57\u3002\n\n\u6240\u6709\u6578\u5b57\u90fd\u57280\u52309\u4e4b\u9593\u3002\n\n\u4f60\u6703\u770b\u5230\u4e00\u4e32\u6578\u5b57\uff0c\u4f9d\u5e8f\u986f\u793a\n\n\u8acb\u8a18\u4f4f\u6574\u4e32\u6578\u5b57&quot;;&amp;#10;maxSlideN = 2;&amp;#10;minSlideN = 1;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="slideN = 1&amp;#10;instruct_txt = '在這個實驗中，\n\n你需要嘗試記住螢幕上顯示的數字。\n\n所有數字都在0到9之間。\n\n你會看到一串數字，依序顯示\n\n請記住整串數字'&amp;#10;&amp;#10;maxSlideN = 2&amp;#10;minSlideN = 1&amp;#10;digitSpan = 2" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="slideN = 1;&amp;#10;instruct_txt = &quot;\u5728\u9019\u500b\u5be6\u9a57\u4e2d\uff0c\n\n\u4f60\u9700\u8981\u5617\u8a66\u8a18\u4f4f\u87a2\u5e55\u4e0a\u986f\u793a\u7684\u6578\u5b57\u3002\n\n\u6240\u6709\u6578\u5b57\u90fd\u57280\u52309\u4e4b\u9593\u3002\n\n\u4f60\u6703\u770b\u5230\u4e00\u4e32\u6578\u5b57\uff0c\u4f9d\u5e8f\u986f\u793a\n\n\u8acb\u8a18\u4f4f\u6574\u4e32\u6578\u5b57&quot;;&amp;#10;maxSlideN = 2;&amp;#10;minSlideN = 1;&amp;#10;digitSpan = 2;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
@@ -462,8 +462,8 @@
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="correct_at_this_level = 0;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="correct_at_this_level = 0" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="incorrect_response = 0;&amp;#10;digitSpan += 1;&amp;#10;level = digitSpan;&amp;#10;psychoJS.experiment.addData(&quot;level&quot;, level);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="incorrect_response = 0&amp;#10;digitSpan += 1&amp;#10;level = digitSpan&amp;#10;thisExp.addData('level', level)" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -611,7 +611,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$'您能夠記住的數列共有 ' + str(last_level-1) + '個'" valType="str" updates="set every repeat" name="text"/>
+        <Param val="$'您能夠記住的數列共有 ' + str(last_level) + '個'" valType="str" updates="set every repeat" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
@@ -1027,8 +1027,8 @@
         <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;keys = psychoJS.eventManager.getKeys();&amp;#10;if (mouse.isPressedIn(clear_button)) {&amp;#10;    entered_text = &quot;&quot;;&amp;#10;    textbox.setText(entered_text);&amp;#10;} else {&amp;#10;    if (mouse.isPressedIn(continue_button)) {&amp;#10;        continueRoutine = false;&amp;#10;    }&amp;#10;}&amp;#10;for (var key, _pj_c = 0, _pj_a = keys, _pj_b = _pj_a.length; (_pj_c &lt; _pj_b); _pj_c += 1) {&amp;#10;    key = _pj_a[_pj_c];&amp;#10;    if (_pj.in_es6(key, [&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;])) {&amp;#10;        entered_text += key;&amp;#10;        textbox.setText(entered_text);&amp;#10;    } else {&amp;#10;        if ((key === &quot;left&quot;)) {&amp;#10;            entered_text = entered_text.slice(0, (- 1));&amp;#10;            textbox.setText(entered_text);&amp;#10;        } else {&amp;#10;            if (((key === &quot;return&quot;) &amp;&amp; (! enter_pressed))) {&amp;#10;                continueRoutine = false;&amp;#10;                enter_pressed = true;&amp;#10;            } else {&amp;#10;                if ((key === &quot;space&quot;)) {&amp;#10;                    entered_text = &quot;&quot;;&amp;#10;                    textbox.setText(entered_text);&amp;#10;                }&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="if ((textbox.text === digits.toString())) {&amp;#10;    correct = 1;&amp;#10;    trials.finished = true;&amp;#10;    fbTxt = &quot;\u7b54\u5c0d\u4e86!&quot;;&amp;#10;} else {&amp;#10;    correct = 0;&amp;#10;    fbTxt = &quot;\u7b54\u932f\u4e86!&quot;;&amp;#10;}&amp;#10;psychoJS.experiment.addData(&quot;correct&quot;, correct);&amp;#10;correct_at_this_level += correct;&amp;#10;if ((((trials.thisN + 1) === trials.nTotal) &amp;&amp; (correct_at_this_level !== trials.nTotal))) {&amp;#10;    last_level = level;&amp;#10;    trials.finished = true;&amp;#10;    blocks.finished = true;&amp;#10;}&amp;#10;psychoJS.experiment.addData(&quot;Response&quot;, entered_text);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="if textbox.text == str(digits):&amp;#10;    correct = 1&amp;#10;    &amp;#10;    # go to next level&amp;#10;    trials.finished = True&amp;#10;    fbTxt = '答對了!'&amp;#10;else:&amp;#10;    correct = 0&amp;#10;    fbTxt = '答錯了!'&amp;#10;thisExp.addData('correct', correct)&amp;#10;&amp;#10;correct_at_this_level += correct&amp;#10;&amp;#10;if trials.thisN+1 == trials.nTotal and correct_at_this_level != trials.nTotal:&amp;#10;    # end level and blocks&amp;#10;    last_level = level&amp;#10;    trials.finished = True&amp;#10;    blocks.finished = True&amp;#10;thisExp.addData('Response', entered_text)" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="if ((textbox.text === digits.toString())) {&amp;#10;    correct = 1;&amp;#10;    trials.finished = true;&amp;#10;    fbTxt = &quot;\u7b54\u5c0d\u4e86!&quot;;&amp;#10;} else {&amp;#10;    correct = 0;&amp;#10;    fbTxt = &quot;\u7b54\u932f\u4e86!&quot;;&amp;#10;    incorrect_response += 1;&amp;#10;}&amp;#10;psychoJS.experiment.addData(&quot;correct&quot;, correct);&amp;#10;if ((((trials.thisN + 1) === trials.nTotal) &amp;&amp; (incorrect_response === trials.nTotal))) {&amp;#10;    last_level = (level - 1);&amp;#10;    trials.finished = true;&amp;#10;    blocks.finished = true;&amp;#10;} else {&amp;#10;    last_level = level;&amp;#10;}&amp;#10;psychoJS.experiment.addData(&quot;Response&quot;, entered_text);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="if textbox.text == str(digits):&amp;#10;    correct = 1&amp;#10;    &amp;#10;    # go to next level&amp;#10;    trials.finished = True&amp;#10;    fbTxt = '答對了!'&amp;#10;else:&amp;#10;    correct = 0&amp;#10;    fbTxt = '答錯了!'&amp;#10;    incorrect_response +=1&amp;#10;thisExp.addData('correct', correct)&amp;#10;&amp;#10;if trials.thisN+1 == trials.nTotal and incorrect_response == trials.nTotal:&amp;#10;    # end level and blocks&amp;#10;    last_level = level-1&amp;#10;    trials.finished = True&amp;#10;    blocks.finished = True&amp;#10;else:&amp;#10;    last_level = level&amp;#10;thisExp.addData('Response', entered_text)" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="fb_code" valType="code" updates="None" name="name"/>
       </CodeComponent>
@@ -1308,6 +1308,40 @@
         <Param val="mouse onset" valType="str" updates="constant" name="timeRelativeTo"/>
       </MouseComponent>
     </Routine>
+    <Routine name="set_item">
+      <RoutineSettingsComponent name="set_item" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit"/>
+        <Param val="" valType="str" updates="None" name="backgroundImg"/>
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color"/>
+        <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
+        <Param val="" valType="str" updates="constant" name="desc"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="set_item" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="constant" name="skipIf"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
+      </RoutineSettingsComponent>
+      <CodeComponent name="code" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="lower_bound = Math.pow(10, (digitSpan - 1));&amp;#10;upper_bound = (Math.pow(10, digitSpan) - 1);&amp;#10;digits = util.randint(lower_bound, upper_bound);&amp;#10;psychoJS.experiment.addData(&quot;digits&quot;, digits);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="lower_bound = 10**(digitSpan - 1)&amp;#10;upper_bound = 10**digitSpan - 1&amp;#10;digits=randint(lower_bound,upper_bound)&amp;#10;thisExp.addData('digits', digits)" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="code" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+    </Routine>
   </Routines>
   <Flow>
     <Routine name="intro"/>
@@ -1326,12 +1360,12 @@
     <LoopTerminator name="Instruct_Loop"/>
     <LoopInitiator loopType="TrialHandler" name="blocks">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'condition_file': 'three.xlsx', 'level': 3}, {'condition_file': 'four.xlsx', 'level': 4}, {'condition_file': 'five.xlsx', 'level': 5}, {'condition_file': 'six.xlsx', 'level': 6}, {'condition_file': 'seven.xlsx', 'level': 7}, {'condition_file': 'eight.xlsx', 'level': 8}, {'condition_file': 'nine.xlsx', 'level': 9}, {'condition_file': 'ten.xlsx', 'level': 10}, {'condition_file': 'eleven.xlsx', 'level': 11}, {'condition_file': 'twelve.xlsx', 'level': 12}]" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="spreadsheets/choose_digitSpan.xlsx" valType="file"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="False" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
-      <Param name="nReps" updates="None" val="5" valType="num"/>
+      <Param name="nReps" updates="None" val="4" valType="num"/>
       <Param name="name" updates="None" val="blocks" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
@@ -1339,14 +1373,15 @@
     <LoopInitiator loopType="TrialHandler" name="trials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="None" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="$'spreadsheets/'+condition_file" valType="file"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
-      <Param name="nReps" updates="None" val="1" valType="num"/>
+      <Param name="nReps" updates="None" val="3" valType="num"/>
       <Param name="name" updates="None" val="trials" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
+    <Routine name="set_item"/>
     <LoopInitiator loopType="TrialHandler" name="digitLoop">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="None" valType="str"/>

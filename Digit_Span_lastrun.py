@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on July 22, 2024, at 11:36
+    on July 23, 2024, at 15:33
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -382,6 +382,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         depth=0
     )
     EndIntroKey = keyboard.Keyboard(deviceName='EndIntroKey')
+    mouse_4 = event.Mouse(win=win)
+    x, y = [None, None]
+    mouse_4.mouseClock = core.Clock()
     
     # --- Initialize components for Routine "Instruction2" ---
     # Run 'Begin Experiment' code from code_5
@@ -390,6 +393,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     maxSlideN = 2
     minSlideN = 1
+    digitSpan = 2
     backimg_2 = visual.ImageStim(
         win=win,
         name='backimg_2', 
@@ -443,6 +447,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "reset_correct" ---
     
+    # --- Initialize components for Routine "set_item" ---
+    
     # --- Initialize components for Routine "Digit_Presentation" ---
     backimg_3 = visual.ImageStim(
         win=win,
@@ -493,7 +499,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         depth=-2.0);
     textbox = visual.TextBox2(
          win, text=None, placeholder=None, font='Arial',
-         pos=(0, 0),     letterHeight=0.05,
+         pos=(0, 0),     letterHeight=0.15,
          size=(1, 0.2), borderWidth=2.0,
          color=[-0.6078, -0.6706, -0.0118], colorSpace='rgb',
          opacity=None,
@@ -540,7 +546,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     feedback_txt = visual.TextStim(win=win, name='feedback_txt',
         text='',
         font='Arial',
-        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+        pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
         color=[-0.6157, -0.6706, -0.0196], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-1.0);
@@ -557,7 +563,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     Thank_you = visual.TextStim(win=win, name='Thank_you',
         text='',
         font='Arial',
-        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+        pos=(0, 0), height=0.075, wrapWidth=None, ori=0.0, 
         color=[-0.6078, -0.6706, -0.0118], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-1.0);
@@ -609,8 +615,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     EndIntroKey.keys = []
     EndIntroKey.rt = []
     _EndIntroKey_allKeys = []
+    # setup some python lists for storing info about the mouse_4
+    mouse_4.x = []
+    mouse_4.y = []
+    mouse_4.leftButton = []
+    mouse_4.midButton = []
+    mouse_4.rightButton = []
+    mouse_4.time = []
+    gotValidClick = False  # until a click is received
     # keep track of which components have finished
-    introComponents = [movie, EndIntroKey]
+    introComponents = [movie, EndIntroKey, mouse_4]
     for thisComponent in introComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -668,7 +682,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             win.callOnFlip(EndIntroKey.clock.reset)  # t=0 on next screen flip
             win.callOnFlip(EndIntroKey.clearEvents, eventType='keyboard')  # clear events on next screen flip
         if EndIntroKey.status == STARTED and not waitOnFlip:
-            theseKeys = EndIntroKey.getKeys(keyList=['left','right','space'], ignoreKeys=["escape"], waitRelease=False)
+            theseKeys = EndIntroKey.getKeys(keyList=['left','right','space','return'], ignoreKeys=["escape"], waitRelease=False)
             _EndIntroKey_allKeys.extend(theseKeys)
             if len(_EndIntroKey_allKeys):
                 EndIntroKey.keys = _EndIntroKey_allKeys[-1].name  # just the last key pressed
@@ -676,6 +690,37 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 EndIntroKey.duration = _EndIntroKey_allKeys[-1].duration
                 # a response ends the routine
                 continueRoutine = False
+        # *mouse_4* updates
+        
+        # if mouse_4 is starting this frame...
+        if mouse_4.status == NOT_STARTED and t >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            mouse_4.frameNStart = frameN  # exact frame index
+            mouse_4.tStart = t  # local t and not account for scr refresh
+            mouse_4.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(mouse_4, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.addData('mouse_4.started', t)
+            # update status
+            mouse_4.status = STARTED
+            mouse_4.mouseClock.reset()
+            prevButtonState = mouse_4.getPressed()  # if button is down already this ISN'T a new click
+        if mouse_4.status == STARTED:  # only update if started and not finished!
+            buttons = mouse_4.getPressed()
+            if buttons != prevButtonState:  # button state changed?
+                prevButtonState = buttons
+                if sum(buttons) > 0:  # state changed to a new click
+                    pass
+                    x, y = mouse_4.getPos()
+                    mouse_4.x.append(x)
+                    mouse_4.y.append(y)
+                    buttons = mouse_4.getPressed()
+                    mouse_4.leftButton.append(buttons[0])
+                    mouse_4.midButton.append(buttons[1])
+                    mouse_4.rightButton.append(buttons[2])
+                    mouse_4.time.append(mouse_4.mouseClock.getTime())
+                    
+                    continueRoutine = False  # end routine on response
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -711,6 +756,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     if EndIntroKey.keys != None:  # we had a response
         thisExp.addData('EndIntroKey.rt', EndIntroKey.rt)
         thisExp.addData('EndIntroKey.duration', EndIntroKey.duration)
+    # store data for thisExp (ExperimentHandler)
+    thisExp.addData('mouse_4.x', mouse_4.x)
+    thisExp.addData('mouse_4.y', mouse_4.y)
+    thisExp.addData('mouse_4.leftButton', mouse_4.leftButton)
+    thisExp.addData('mouse_4.midButton', mouse_4.midButton)
+    thisExp.addData('mouse_4.rightButton', mouse_4.rightButton)
+    thisExp.addData('mouse_4.time', mouse_4.time)
     thisExp.nextEntry()
     # the Routine "intro" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -1036,9 +1088,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     
     # set up handler to look after randomisation of conditions etc
-    blocks = data.TrialHandler(nReps=5.0, method='sequential', 
+    blocks = data.TrialHandler(nReps=4.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('spreadsheets/choose_digitSpan.xlsx'),
+        trialList=[None],
         seed=None, name='blocks')
     thisExp.addLoop(blocks)  # add the loop to the experiment
     thisBlock = blocks.trialList[0]  # so we can initialise stimuli with some values
@@ -1068,7 +1120,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update component parameters for each repeat
         thisExp.addData('reset_correct.started', globalClock.getTime(format='float'))
         # Run 'Begin Routine' code from code_4
-        correct_at_this_level = 0
+        incorrect_response = 0
+        digitSpan += 1
+        level = digitSpan
+        thisExp.addData('level', level)
         # keep track of which components have finished
         reset_correctComponents = []
         for thisComponent in reset_correctComponents:
@@ -1123,9 +1178,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         routineTimer.reset()
         
         # set up handler to look after randomisation of conditions etc
-        trials = data.TrialHandler(nReps=1.0, method='sequential', 
+        trials = data.TrialHandler(nReps=3.0, method='sequential', 
             extraInfo=expInfo, originPath=-1,
-            trialList=data.importConditions('spreadsheets/'+condition_file),
+            trialList=[None],
             seed=None, name='trials')
         thisExp.addLoop(trials)  # add the loop to the experiment
         thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
@@ -1149,6 +1204,67 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if thisTrial != None:
                 for paramName in thisTrial:
                     globals()[paramName] = thisTrial[paramName]
+            
+            # --- Prepare to start Routine "set_item" ---
+            continueRoutine = True
+            # update component parameters for each repeat
+            thisExp.addData('set_item.started', globalClock.getTime(format='float'))
+            # Run 'Begin Routine' code from code
+            lower_bound = 10**(digitSpan - 1)
+            upper_bound = 10**digitSpan - 1
+            digits=randint(lower_bound,upper_bound)
+            # keep track of which components have finished
+            set_itemComponents = []
+            for thisComponent in set_itemComponents:
+                thisComponent.tStart = None
+                thisComponent.tStop = None
+                thisComponent.tStartRefresh = None
+                thisComponent.tStopRefresh = None
+                if hasattr(thisComponent, 'status'):
+                    thisComponent.status = NOT_STARTED
+            # reset timers
+            t = 0
+            _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+            frameN = -1
+            
+            # --- Run Routine "set_item" ---
+            routineForceEnded = not continueRoutine
+            while continueRoutine:
+                # get current time
+                t = routineTimer.getTime()
+                tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+                tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+                frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+                # update/draw components on each frame
+                
+                # check for quit (typically the Esc key)
+                if defaultKeyboard.getKeys(keyList=["escape"]):
+                    thisExp.status = FINISHED
+                if thisExp.status == FINISHED or endExpNow:
+                    endExperiment(thisExp, win=win)
+                    return
+                
+                # check if all components have finished
+                if not continueRoutine:  # a component has requested a forced-end of Routine
+                    routineForceEnded = True
+                    break
+                continueRoutine = False  # will revert to True if at least one component still running
+                for thisComponent in set_itemComponents:
+                    if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                        continueRoutine = True
+                        break  # at least one component has not yet finished
+                
+                # refresh the screen
+                if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+                    win.flip()
+            
+            # --- Ending Routine "set_item" ---
+            for thisComponent in set_itemComponents:
+                if hasattr(thisComponent, "setAutoDraw"):
+                    thisComponent.setAutoDraw(False)
+            thisExp.addData('set_item.stopped', globalClock.getTime(format='float'))
+            # the Routine "set_item" was not non-slip safe, so reset the non-slip timer
+            routineTimer.reset()
             
             # set up handler to look after randomisation of conditions etc
             digitLoop = data.TrialHandler(nReps=digitSpan, method='sequential', 
@@ -1649,15 +1765,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             else:
                 correct = 0
                 fbTxt = '答錯了!'
+                incorrect_response +=1
             thisExp.addData('correct', correct)
             
-            correct_at_this_level += correct
-            
-            if trials.thisN+1 == trials.nTotal and correct_at_this_level != trials.nTotal:
+            if trials.thisN+1 == trials.nTotal and incorrect_response == trials.nTotal:
                 # end level and blocks
                 last_level = level
                 trials.finished = True
                 blocks.finished = True
+            else:
+                last_level = level
             thisExp.addData('Response', entered_text)
             # store data for trials (TrialHandler)
             trials.addData('mouse.x', mouse.x)
@@ -1810,9 +1927,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if thisSession is not None:
                 # if running in a Session with a Liaison client, send data up to now
                 thisSession.sendExperimentData()
-        # completed 1.0 repeats of 'trials'
+        # completed 3.0 repeats of 'trials'
         
-    # completed 5.0 repeats of 'blocks'
+    # completed 4.0 repeats of 'blocks'
     
     
     # --- Prepare to start Routine "End" ---

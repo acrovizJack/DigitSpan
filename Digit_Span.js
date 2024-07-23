@@ -69,6 +69,7 @@ flowScheduler.add(blocksLoopEnd);
 
 
 
+
 flowScheduler.add(EndRoutineBegin());
 flowScheduler.add(EndRoutineEachFrame());
 flowScheduler.add(EndRoutineEnd());
@@ -82,7 +83,6 @@ psychoJS.start({
   expInfo: expInfo,
   resources: [
     // resources:
-    {'name': 'spreadsheets/choose_digitSpan.xlsx', 'path': 'spreadsheets/choose_digitSpan.xlsx'},
     {'name': 'stimuli/opening.mp4', 'path': 'stimuli/opening.mp4'},
     {'name': 'stimuli/redesign/digitspan_background.png', 'path': 'stimuli/redesign/digitspan_background.png'},
     {'name': 'stimuli/backButtonImage.png', 'path': 'stimuli/backButtonImage.png'},
@@ -160,6 +160,7 @@ var slideN;
 var instruct_txt;
 var maxSlideN;
 var minSlideN;
+var digitSpan;
 var backimg_2;
 var i2_txt;
 var pgnum;
@@ -169,6 +170,7 @@ var nextButton_2;
 var start_2;
 var mouse_3;
 var reset_correctClock;
+var set_itemClock;
 var Digit_PresentationClock;
 var backimg_3;
 var image;
@@ -224,6 +226,7 @@ async function experimentInit() {
   instruct_txt = "\u5728\u9019\u500b\u5be6\u9a57\u4e2d\uff0c\n\n\u4f60\u9700\u8981\u5617\u8a66\u8a18\u4f4f\u87a2\u5e55\u4e0a\u986f\u793a\u7684\u6578\u5b57\u3002\n\n\u6240\u6709\u6578\u5b57\u90fd\u57280\u52309\u4e4b\u9593\u3002\n\n\u4f60\u6703\u770b\u5230\u4e00\u4e32\u6578\u5b57\uff0c\u4f9d\u5e8f\u986f\u793a\n\n\u8acb\u8a18\u4f4f\u6574\u4e32\u6578\u5b57";
   maxSlideN = 2;
   minSlideN = 1;
+  digitSpan = 2;
   
   backimg_2 = new visual.ImageStim({
     win : psychoJS.window,
@@ -297,6 +300,8 @@ async function experimentInit() {
   mouse_3.mouseClock = new util.Clock();
   // Initialize components for Routine "reset_correct"
   reset_correctClock = new util.Clock();
+  // Initialize components for Routine "set_item"
+  set_itemClock = new util.Clock();
   // Initialize components for Routine "Digit_Presentation"
   Digit_PresentationClock = new util.Clock();
   backimg_3 = new visual.ImageStim({
@@ -743,9 +748,9 @@ function blocksLoopBegin(blocksLoopScheduler, snapshot) {
     // set up handler to look after randomisation of conditions etc
     blocks = new TrialHandler({
       psychoJS: psychoJS,
-      nReps: 5, method: TrialHandler.Method.SEQUENTIAL,
+      nReps: 4, method: TrialHandler.Method.SEQUENTIAL,
       extraInfo: expInfo, originPath: undefined,
-      trialList: 'spreadsheets/choose_digitSpan.xlsx',
+      trialList: undefined,
       seed: undefined, name: 'blocks'
     });
     psychoJS.experiment.addLoop(blocks); // add the loop to the experiment
@@ -778,9 +783,9 @@ function trialsLoopBegin(trialsLoopScheduler, snapshot) {
     // set up handler to look after randomisation of conditions etc
     trials = new TrialHandler({
       psychoJS: psychoJS,
-      nReps: 1, method: TrialHandler.Method.SEQUENTIAL,
+      nReps: 3, method: TrialHandler.Method.SEQUENTIAL,
       extraInfo: expInfo, originPath: undefined,
-      trialList: ("spreadsheets/" + condition_file),
+      trialList: undefined,
       seed: undefined, name: 'trials'
     });
     psychoJS.experiment.addLoop(trials); // add the loop to the experiment
@@ -790,6 +795,9 @@ function trialsLoopBegin(trialsLoopScheduler, snapshot) {
     for (const thisTrial of trials) {
       snapshot = trials.getSnapshot();
       trialsLoopScheduler.add(importConditions(snapshot));
+      trialsLoopScheduler.add(set_itemRoutineBegin(snapshot));
+      trialsLoopScheduler.add(set_itemRoutineEachFrame());
+      trialsLoopScheduler.add(set_itemRoutineEnd(snapshot));
       const digitLoopLoopScheduler = new Scheduler(psychoJS);
       trialsLoopScheduler.add(digitLoopLoopBegin(digitLoopLoopScheduler, snapshot));
       trialsLoopScheduler.add(digitLoopLoopScheduler);
@@ -1221,7 +1229,8 @@ function Instruction2RoutineEnd(snapshot) {
 }
 
 
-var correct_at_this_level;
+var incorrect_response;
+var level;
 var reset_correctComponents;
 function reset_correctRoutineBegin(snapshot) {
   return async function () {
@@ -1235,7 +1244,10 @@ function reset_correctRoutineBegin(snapshot) {
     // update component parameters for each repeat
     psychoJS.experiment.addData('reset_correct.started', globalClock.getTime());
     // Run 'Begin Routine' code from code_4
-    correct_at_this_level = 0;
+    incorrect_response = 0;
+    digitSpan += 1;
+    level = digitSpan;
+    psychoJS.experiment.addData("level", level);
     
     // keep track of which components have finished
     reset_correctComponents = [];
@@ -1292,6 +1304,93 @@ function reset_correctRoutineEnd(snapshot) {
     }
     psychoJS.experiment.addData('reset_correct.stopped', globalClock.getTime());
     // the Routine "reset_correct" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
+    }
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+var lower_bound;
+var upper_bound;
+var digits;
+var set_itemComponents;
+function set_itemRoutineBegin(snapshot) {
+  return async function () {
+    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
+    
+    //--- Prepare to start Routine 'set_item' ---
+    t = 0;
+    set_itemClock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    psychoJS.experiment.addData('set_item.started', globalClock.getTime());
+    // Run 'Begin Routine' code from code
+    lower_bound = Math.pow(10, (digitSpan - 1));
+    upper_bound = (Math.pow(10, digitSpan) - 1);
+    digits = util.randint(lower_bound, upper_bound);
+    psychoJS.experiment.addData("digits", digits);
+    
+    // keep track of which components have finished
+    set_itemComponents = [];
+    
+    for (const thisComponent of set_itemComponents)
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function set_itemRoutineEachFrame() {
+  return async function () {
+    //--- Loop for each frame of Routine 'set_item' ---
+    // get current time
+    t = set_itemClock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    for (const thisComponent of set_itemComponents)
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+        break;
+      }
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function set_itemRoutineEnd(snapshot) {
+  return async function () {
+    //--- Ending Routine 'set_item' ---
+    for (const thisComponent of set_itemComponents) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    }
+    psychoJS.experiment.addData('set_item.stopped', globalClock.getTime());
+    // the Routine "set_item" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
     // Routines running outside a loop should always advance the datafile row
@@ -1709,13 +1808,15 @@ function RecallRoutineEnd(snapshot) {
     } else {
         correct = 0;
         fbTxt = "\u7b54\u932f\u4e86!";
+        incorrect_response += 1;
     }
     psychoJS.experiment.addData("correct", correct);
-    correct_at_this_level += correct;
-    if ((((trials.thisN + 1) === trials.nTotal) && (correct_at_this_level !== trials.nTotal))) {
-        last_level = level;
+    if ((((trials.thisN + 1) === trials.nTotal) && (incorrect_response === trials.nTotal))) {
+        last_level = (level - 1);
         trials.finished = true;
         blocks.finished = true;
+    } else {
+        last_level = level;
     }
     psychoJS.experiment.addData("Response", entered_text);
     
@@ -1873,7 +1974,7 @@ function EndRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     psychoJS.experiment.addData('End.started', globalClock.getTime());
-    Thank_you.setText((("\u60a8\u80fd\u5920\u8a18\u4f4f\u7684\u6578\u5217\u5171\u6709 " + (last_level - 1).toString()) + "\u500b"));
+    Thank_you.setText((("\u60a8\u80fd\u5920\u8a18\u4f4f\u7684\u6578\u5217\u5171\u6709 " + last_level.toString()) + "\u500b"));
     // setup some python lists for storing info about the mouse_2
     // current position of the mouse:
     mouse_2.x = [];
